@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="ThreadPoolClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThreadsClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MultiThreading.HW.IANA.ZoneServer\MultiThreading.HW.IANA.ZoneServer.csproj">

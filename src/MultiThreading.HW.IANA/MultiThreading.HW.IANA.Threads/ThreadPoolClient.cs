@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MultiThreading.HW.IANA.Threads
 {
-    public class ThreadPoolClient : IanaDbClient
+    public class ThreadPoolClient 
     {
         private IanaDbClient client = new IanaDbClient();
 
@@ -29,21 +29,12 @@ namespace MultiThreading.HW.IANA.Threads
 
                 while (!resetGetDomains.WaitOne(TimeSpan.FromSeconds(1)))
                 {
-                    logger.Log($"Continue GetDomains");
+                    logger.Log($"Continue GetDomains_Threads");
                     Thread.Sleep(TimeSpan.FromSeconds(1));
                 }
                 return domains;
             };
-            return logger.WrapWithTimeLog(func, "GetDomains");
-            //DateTime startTime = DateTime.Now; 
-            //Console.WriteLine($"[{startTime}] START GetDomains");
-
-
-            //DateTime endTime = DateTime.Now;
-            //var time = endTime - startTime;
-            //logger.Log($"[{endTime}] END GetDomains. Total: {time.TotalSeconds}");
-
-            //return domains;
+            return logger.WrapWithTimeLog(func, "GetDomains_ThreadPool");
         }
 
         public IList<IanaDomainWIthWhois> GetWhois(IList<IanaDomain> domains)
@@ -79,7 +70,7 @@ namespace MultiThreading.HW.IANA.Threads
 
                 return whoisList;
             };
-            return logger.WrapWithTimeLog(func, "GetWhois");
+            return logger.WrapWithTimeLog(func, "GetWhois_ThreadPool");
         }
 
 
