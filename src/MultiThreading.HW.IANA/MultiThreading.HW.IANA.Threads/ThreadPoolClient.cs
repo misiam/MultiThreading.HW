@@ -45,7 +45,6 @@ namespace MultiThreading.HW.IANA.Threads
                 ManualResetEvent resetGetWhois = new ManualResetEvent(false);
 
                 var whoisList = new List<IanaDomainWIthWhois>();
-                int i = 0;
                 foreach (var item in domains)
                 {
                     ThreadPool.QueueUserWorkItem((state) => {
