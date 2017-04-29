@@ -13,13 +13,13 @@ namespace MultiThreading.HW.IANA.TPL
         private TasksClient client = new TasksClient();
         public async Task<IList<IanaDomain>> GetDomains(string url, bool startTask = false)
         {
-            var getDomainsTask = client.GetDomains(url);
+            var getDomainsTask = client.GetDomains(url, startTask);
             return await getDomainsTask;
         }
 
-        public async Task<IList<IanaDomainWIthWhois>> GetWhois(IList<IanaDomain> domains)
+        public async Task<IList<IanaDomainWIthWhois>> GetWhois(IList<IanaDomain> domains, bool startTask = false)
         {
-            return await client.GetWhois(domains);
+            return await client.GetWhois(domains, startTask);
         }
     }
 }
